@@ -1,0 +1,16 @@
+<input id="username" placeholder="Your user name">
+<button onclick="getCode()" style="background:green;color:white">
+GET
+</button>
+<p id="result"></p>
+
+<script>
+async function getCode() {
+  const user = document.getElementById("username").value;
+  const res = await fetch(
+    "https://你的接口/getCode?user=" + user
+  );
+  const data = await res.json();
+  document.getElementById("result").innerText = data.code;
+}
+</script>
